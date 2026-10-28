@@ -1,0 +1,26 @@
+// ได้จาก npx prisma db pull (หลัง import database/ch7_menu.sql)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model menu {
+  menuId       Int     @id @default(autoincrement())
+  name         String  @db.VarChar(100)
+  price        Int
+  isBestSeller Boolean @default(false)
+  typeId       Int?
+  type         type?   @relation(fields: [typeId], references: [typeId], onDelete: NoAction, onUpdate: NoAction, map: "menu_ibfk_1")
+
+  @@index([typeId], map: "typeId")
+}
+
+model type {
+  typeId Int    @id @default(autoincrement())
+  name   String @db.VarChar(50)
+  menu   menu[]
+}

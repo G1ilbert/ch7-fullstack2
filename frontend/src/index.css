@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: only light;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, 'Segoe UI', Tahoma, sans-serif;
+  background: #fff;
+  color: #111;
+}
+
+form label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+button {
+  margin-left: 4px;
+}
